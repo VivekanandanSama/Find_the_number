@@ -1,0 +1,19 @@
+S,N,K,X = "1234567890",10,12,5
+
+blocks = []
+num_blocks = int(N/X)
+for i in range(num_blocks):
+    blocks.append(S[i*X:(i+1)*X])
+print(blocks)
+nums = list(str(blocks[num_blocks-1]))
+n = num_blocks-2
+# print(n)
+while n >= 0:
+    new = [x+y for x in blocks[n] for y in nums]
+    nums = new
+    # print(new)
+    n = n-1
+nums = list(map(int, nums))
+print(nums)
+nums.sort()
+print(nums[K-1])
